@@ -23,39 +23,12 @@ body {
 }
 
 /* Color schemes */
-.demo-1 {
-	--color-text: #86eae7;
-	--color-link: #fff;
-	--color-link-hover: #86eae7;
-	--color-title: #fff;
-}
 
 .demo-2 {
 	--color-text: #ff53ff;
 	--color-link: #3c48fa;
 	--color-link-hover: #fff;
 	--color-title: #fff;
-}
-
-.demo-3 {
-	--color-text: #1ed97c;
-	--color-link: #fff;
-	--color-link-hover: #fff;
-	--color-title: #fff;
-}
-
-.demo-4 {
-	--color-text: #f0ea42;
-	--color-link: #ce8c32;
-	--color-link-hover: #fff;
-	--color-title: #ce8c32;
-}
-
-.demo-5 {
-	--color-text: #5c5ee7;
-	--color-link: #0ab5e4;
-	--color-link-hover: #fff;
-	--color-title: #0ab5e4;
 }
 
 a {
@@ -70,125 +43,97 @@ a:focus {
 	outline: none;
 }
 
-.frame {
-	padding: 3rem 5vw;
-	text-align: center;
-	position: relative;
-	z-index: 1000;
-}
-
-.frame__title {
-	font-size: 1rem;
-	margin: 0 0 1rem;
-	font-weight: normal;
-}
-
-.frame__links {
-	display: inline;
-}
-
-.frame__github,
-.frame__links a:not(:last-child),
-.frame__demos a:not(:last-child) {
-	margin-right: 1rem;
-}
-
-.frame__demos {
-	margin: 1rem 0;
-}
-
-.frame__demo--current,
-.frame__demo--current:hover {
-	text-decoration: underline;
-	color: var(--color-link);
-}
-
 .content {
 	display: flex;
 	flex-direction: column;
-	width: 100vw;
-	height: calc(100vh - 13rem);
+	max-width: 1200px;
+	height: 100vh;
 	position: relative;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
+	margin: 0 auto;
 }
 
 .content__title {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	margin: -5.5vw 0 0 0;
 	z-index: 100;
-	font-size: 10vw;
+	font-size: 10em;
 	color: var(--color-title);
-	line-height: 1;
+	margin: 0;
 }
 
 .content__subtitle {
-	position: absolute;
-	top: 70%;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	margin: -5.5vw 0 0 0;
 	z-index: 100;
-	font-size: 5vw;
-	color: purple;
-	line-height: 1;
+	margin: 0;
+	font-size: 5em;
+	color: rgb(0, 0, 0);
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
-@media screen and (min-width: 53em) {
-	.message {
-		display: none;
+#button {
+	margin-top: 1em;
+	padding: 12px 16px;
+	/* height: 50px; */
+	color: #ffffff;
+	font-size: 2.5em;
+	font-weight: bold;
+	border: #fff 2px solid;
+	overflow:hidden;
+	transition: all 0.6s cubic-bezier(.55,0,.1,1);
+	cursor: pointer;
+	box-shadow: 0px 0px 0px #fff;
+	z-index: 100;
+}
+
+#button:hover{
+	text-shadow: 0px 8px 6px rgba(0,0,0,0.9);
+	box-shadow: 8px 8px 0px #fff, -8px -8px 0px #fff;
+}
+#button:hover .one{
+	opacity:1;
+	transform: translate3d(0px ,0px ,0px);
+}
+#button:hover .two{
+	
+	transform: translate3d(0px ,0px ,0px);
+}
+#button:hover .three{
+	transform: translate3d(0px ,0px ,0px);
+}
+#button:hover .four{
+	transform: translate3d(0px ,0px ,0px);
+}
+
+
+@media only screen and (min-width: 768px) {
+    .content__title {
+		font-size: 5em;
 	}
-	.frame {
-		position: fixed;
-		text-align: left;
-		z-index: 10000;
-		top: 0;
-		left: 0;
-		display: grid;
-		align-content: space-between;
-		width: 100%;
-		max-width: none;
-		height: 100vh;
-		padding: 2rem 2.25rem;
-		pointer-events: none;
-		grid-template-columns: 25% 50% 25%;
-		grid-template-rows: auto auto auto;
-		grid-template-areas: 'title title ... '
-							'... ... ...'
-							'github demos links';
+	.content__subtitle {
+		font-size: 3em;
 	}
-	.frame__title-wrap {
-		grid-area: title;
-		display: flex;
+}
+
+@media only screen and (min-width: 1360px) {
+    .content__title {
+		font-size: 10em;
 	}
-	.frame__title {
-		margin: 0;
+	.content__subtitle {
+		font-size: 5em;
 	}
-	.frame__github {
-		grid-area: github;
-		justify-self: start;
-		margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+	.content__title {
+		font-size: 3em;
 	}
-	.frame__demos {
-		margin: 0;
-		grid-area: demos;
-		justify-self: center;
+	.content__subtitle {
+		font-size: 2em;
 	}
-	.frame__links {
-		grid-area: links;
-		padding: 0;
-		justify-self: end;
+	#button {
+		font-size: 1.5em;
 	}
-	.frame a {
-		pointer-events: auto;
-	}
-	.content {
-		height: 100vh;
-		justify-content: center;
-	}
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
 }
